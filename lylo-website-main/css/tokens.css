@@ -1,0 +1,235 @@
+/* ==========================================================================
+   LYLO — Design Tokens
+   Colours sampled directly from the Figma style guide (Local Styles).
+   Fonts: three real brand families, supplied by the designer —
+   Antipol (display: Hero Headline / H1 / H3), 42dot Sans (body copy,
+   full weight range), Mixcoatl Mono (nav, buttons, captions, labels).
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+
+/* ---- Antipol — display font (Hero Headline / H1 / H3) ---- */
+@font-face {
+  font-family: 'Antipol';
+  src: url('../assets/fonts/Antipol-Bold.woff2') format('woff2'),
+       url('../assets/fonts/Antipol-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- 42dot Sans — body copy, full weight range ---- */
+@font-face {
+  font-family: '42dot Sans';
+  src: url('../assets/fonts/42dotSans-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: '42dot Sans';
+  src: url('../assets/fonts/42dotSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: '42dot Sans';
+  src: url('../assets/fonts/42dotSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: '42dot Sans';
+  src: url('../assets/fonts/42dotSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: '42dot Sans';
+  src: url('../assets/fonts/42dotSans-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Mixcoatl Mono — nav, buttons, captions, small labels ---- */
+@font-face {
+  font-family: 'Mixcoatl Mono';
+  src: url('../assets/fonts/MixcoatlMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---- Colour tokens (named to match Figma) ---- */
+  --pale-amber:      #F7E17E;
+  --botanical-moss:  #485036;
+  --lotus-blush:     #FFCFE5;
+  --ember-charge:    #DC5326;
+  --waterlily-mist:  #BBC27C;
+  --petal-crimson:   #6D213C;
+  --nectar-violet:   #C197F1;
+  --deep-wetland:    #333A52;
+  --pond-shimmer:    #9ECCE4;
+  --bihar-clay:      #653D33;
+  --lily-white:      #E3DBBB;
+  --lotus-root:      #292929;
+
+  /* hero placeholder grey, sampled from mock */
+  --mock-grey:       #656565;
+  --placeholder-coral: #D75E5E;
+
+  /* ---- Semantic aliases ---- */
+  --color-bg:            var(--lily-white);
+  --color-text:          var(--lotus-root);
+  --color-text-inverse:  var(--lily-white);
+  --color-accent:        var(--ember-charge);
+  --color-primary-btn:   var(--petal-crimson);
+
+  /* ---- Type families ---- */
+  --font-display: 'Antipol', sans-serif;                     /* Hero Headline / H1 / H3 */
+  --font-body:    '42dot Sans', -apple-system, BlinkMacSystemFont, sans-serif; /* Body copy */
+  --font-mono:    'Mixcoatl Mono', monospace;                 /* Nav, buttons, captions, labels */
+  --font-script:  'Caveat', cursive;                          /* "Lead your life, optimised" accent */
+
+  /* ---- Type scale (from Figma Local Styles: size/line-height) ----
+     Caps raised per designer feedback: headlines were getting lost on
+     large desktop screens (1920x1080) — scaling up for editorial impact. */
+  --fs-hero:   clamp(3rem, 6.5vw, 7.5rem);     /* 80/110, scaled up for large screens */
+  --fs-h1:     clamp(2.5rem, 4.5vw, 4.5rem);   /* 48/120, scaled up */
+  --fs-h2:     clamp(1.75rem, 3vw, 2.5rem);    /* 28/125, scaled up */
+  --fs-h3:     clamp(1.5rem, 2.75vw, 2.75rem); /* 32/110, scaled up */
+  --fs-body-lg: 1.125rem;                     /* 18/150 */
+  --fs-body:    1rem;                         /* 16/140 */
+  --fs-article: 1.375rem;                     /* 22/150 */
+  --fs-mobile:  1.25rem;                      /* 20/150 */
+  --fs-btn:     0.875rem;                     /* 14/140 */
+  --fs-caption: 0.75rem;   
+  --fs-section-title: clamp(4rem, 5vw, 5.5rem);                   /* 12/130 */
+
+  /* ---- Layout ---- */
+  --page-max: 1400px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --radius-pill: 999px;
+  --border-thin: 1px solid rgba(41,41,41,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+button { font-family: inherit; cursor: pointer; }
+
+h1, h2, h3, h4, p { margin: 0; }
+
+.wrap {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Utility: caption / label / mono treatment used across nav, buttons, tags */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Button — values taken directly from Figma Dev Mode (components.docx):
+   Default:  Hug 159x42, radius 20, padding 16, gap 10, fill Petal Crimson
+   Hover:    same box model, fill Waterlily Mist, text Petal Crimson
+   Outline:  Hug 161 / fixed 42, radius 20, border 1px Deep Wetland
+   Disabled: fill Waterlily Mist @ reduced opacity, no pointer events */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-btn);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 16px 16px;
+  min-height: 42px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--petal-crimson);
+  color: var(--waterlily-mist);
+}
+.btn-primary:hover {
+  background: var(--waterlily-mist);
+  color: var(--petal-crimson);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--deep-wetland);
+  border-color: var(--deep-wetland);
+}
+.btn-outline:hover {
+  background: var(--waterlily-mist);
+  color: var(--petal-crimson);
+  border-color: var(--waterlily-mist);
+}
+
+.btn-accent {
+  background: var(--petal-crimson);
+  color: var(--waterlily-mist);
+}
+.btn-accent:hover {
+  background: var(--waterlily-mist);
+  color: var(--petal-crimson);
+}
+
+.btn[disabled], .btn.is-disabled {
+  background: var(--waterlily-mist);
+  color: var(--lily-white);
+  opacity: 1;
+  cursor: not-allowed;
+  pointer-events: none;
+  border-color: transparent;
+}
+
+/* Placeholder media block — mirrors the coral placeholder blocks in the Figma file.
+   Swap for a real <img>/<picture> when assets land; keep the class for consistent sizing. */
+.placeholder {
+  background: var(--placeholder-coral);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.3;
+  padding: 1rem;
+  min-height: 120px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

@@ -1,0 +1,669 @@
+/* ==========================================================================
+   LYLO — Flavour deep-dive page (shared by all 4 flavours)
+   Each flavour gets its own theme (right-column background + accent colour),
+   set via a data-theme attribute on <body>. See the 4 blocks at the bottom.
+   ========================================================================== */
+
+.breadcrumb {
+  padding: 1.5rem var(--gutter) 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--flavour-accent, var(--petal-crimson));
+}
+.breadcrumb a { text-decoration: underline; text-underline-offset: 3px; color: inherit; }
+
+.flavour-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: stretch;
+}
+
+.flavour-left {
+  padding: 1.5rem var(--gutter) 3rem;
+  background: var(--lily-white);
+
+  position: relative;
+}
+
+.flavour-info {
+  padding: 2rem clamp(1.5rem, 3vw, 3rem) 3rem;
+  background: var(--flavour-bg, var(--pond-shimmer));
+  color: var(--flavour-text, var(--lotus-root));
+}
+
+/* ---- Left column: gallery, locator, own-a-store ---- */
+.gallery {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+
+  gap: 1rem;
+
+  position: sticky;
+  top: 120px;
+
+  min-height: calc(100vh - 150px);
+
+  align-items: start;
+
+  margin-bottom: 0;
+}
+.gallery-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gallery-thumb {
+  width: 100%;
+  padding: 0;
+
+  border: 1px solid transparent;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.gallery-thumb.active {
+  border-color: var(--flavour-accent);
+}
+
+.gallery-thumbs .placeholder,
+.gallery-thumbs img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.gallery-main {
+  width: 100%;
+}
+
+.gallery-main .placeholder,
+.gallery-main img {
+  width: 100%;
+
+  height: calc(100vh - 160px);
+  min-height: 520px;
+
+  object-fit: cover;
+}
+.locator { margin-bottom: 0rem; }
+.locator h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: var(--flavour-accent, var(--petal-crimson));
+  margin-bottom: 0.5rem;
+}
+.locator > p { line-height: 1.5; max-width: 42ch; margin-bottom: 1.25rem; }
+
+.locator-search {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.locator-search input {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.7em 1em;
+  border: 1px solid rgba(41,41,41,0.3);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+.locator-search .use-location {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: var(--lotus-root);
+  color: var(--lily-white);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 0.7em 1.4em;
+  white-space: nowrap;
+}
+.locator-search .use-location:hover { opacity: 0.85; }
+
+.locator h3.section-label {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: var(--lotus-root);
+}
+
+.featured-stockists {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(41,41,41,0.15);
+  border: 1px solid rgba(41,41,41,0.25);
+  margin-bottom: 0;
+}
+.featured-stockists .logo-slot {
+  background: var(--lily-white);
+  aspect-ratio: auto;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.featured-stockists .logo-slot span {
+  width: 66%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: rgba(41,41,41,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--lotus-root);
+}
+
+.locator-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid rgba(41,41,41,0.25);
+}
+.locator-tabs button {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 0.6em 1.2em;
+  border: 1px solid transparent;
+  border-bottom: none;
+  background: transparent;
+  opacity: 0.45;
+  position: relative;
+  top: 1px;
+}
+.locator-tabs button.active {
+  opacity: 1;
+  font-weight: 700;
+  background: var(--lily-white);
+  border-color: rgba(41,41,41,0.25);
+}
+
+.stockist-panel {
+  border: 1px solid rgba(41,41,41,0.25);
+  border-top: none;
+  padding: 1.25rem;
+}
+.featured-stockists,
+.locator-tabs,
+.stockist-panel {
+  margin-left: calc(-1 * var(--gutter));
+  margin-right: calc(-1 * var(--gutter));
+}
+.stockist-panel[hidden] { display: none; }
+
+.stockist-region h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 1rem 0 0.6rem;
+}
+.stockist-region:first-child h4 { margin-top: 0; }
+.stockist-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+.stockist-row .view-map {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  background: var(--lotus-root);
+  color: var(--lily-white);
+  padding: 0.4em 0.9em;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  justify-self: end;
+}
+.stockist-row .view-map:hover { opacity: 0.85; }
+
+.own-store {
+  position: relative;
+  overflow: hidden;
+  min-height: 460px;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+
+  margin-left: calc(-1 * var(--gutter));
+  margin-right: calc(-1 * var(--gutter));
+  margin-bottom: -3rem;
+}
+.own-store img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.own-store::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(20,15,10,0.7), rgba(20,15,10,0.05) 60%);
+  z-index: 1;
+}
+.own-store-copy {
+  position: relative;
+  z-index: 2;
+  padding: 1.75rem;
+}
+.own-store-copy h3 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.own-store-copy .btn {
+  background: var(--lily-white);
+  color: var(--lotus-root);
+}
+.own-store-copy .btn:hover { background: #fff; }
+
+/* ---- Right column: flavour info ---- */
+.flavour-info .fi-block {
+  border-top: 1px solid var(--flavour-divider, rgba(41,41,41,0.2));
+  padding: 2rem 0;
+}
+.flavour-info .fi-block:first-child { border-top: none; padding-top: 0; }
+
+.fi-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--flavour-accent, var(--ember-charge));
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.fi-intro h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: var(--fs-h1);
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  color: var(--flavour-accent, var(--petal-crimson));
+}
+.fi-intro .tagline {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  color: var(--flavour-accent, var(--petal-crimson));
+}
+.fi-intro p { line-height: 1.6; margin-bottom: 0.75rem; max-width: 52ch; }
+
+.fi-block h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+.fi-block > p { line-height: 1.6; max-width: 55ch; margin-bottom: 1rem; }
+
+.tasting-notes { margin-top: 1rem; }
+.tasting-notes h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.6rem; }
+.tasting-notes ul, .pair-list ul, .dietary-list ul { list-style: disc; margin: 0; padding-left: 1.2rem; }
+.tasting-notes li, .pair-list li, .dietary-list li {
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.tasting-notes li strong { font-weight: 700; }
+
+.nutrition-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.88rem; }
+.nutrition-table th, .nutrition-table td { text-align: left; padding: 0.5rem 0.5rem 0.5rem 0; }
+.nutrition-table th { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.nutrition-table thead th:first-child { font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; text-transform: none; }
+.nutrition-table tr td:not(:first-child), .nutrition-table tr th:not(:first-child) { text-align: left; }
+
+.dietary-list p.disclaimer { font-size: 0.75rem; opacity: 0.75; margin-top: 0.75rem; }
+
+.why-list { margin-top: 1rem; display: flex; flex-direction: column; gap: 1.25rem; }
+.why-list .why-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+.why-list .why-item p { font-size: 0.9rem; line-height: 1.5; max-width: 55ch; }
+
+.fi-cta .kicker {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--flavour-accent, var(--ember-charge));
+  margin-bottom: 1rem;
+  display: block;
+}
+.fi-cta .find-btn {
+  display: inline-flex;
+  background: var(--flavour-accent, var(--petal-crimson));
+  color: var(--flavour-btn-text, var(--lily-white));
+}
+.fi-cta .find-btn:hover { opacity: 0.85; }
+
+/* ---- Flavour themes ---- */
+body[data-theme="sea-salt"] {
+  --flavour-bg: var(--pond-shimmer);
+  --flavour-accent: var(--petal-crimson);
+  --flavour-text: var(--lotus-root);
+  --flavour-divider: rgba(41,41,41,0.2);
+}
+body[data-theme="aged-cheddar"] {
+  --flavour-bg: var(--pale-amber);
+  --flavour-accent: var(--botanical-moss);
+  --flavour-text: var(--lotus-root);
+  --flavour-divider: rgba(41,41,41,0.2);
+}
+body[data-theme="white-truffle"] {
+  --flavour-bg: var(--lotus-root);
+  --flavour-accent: var(--lily-white);
+  --flavour-text: var(--lily-white);
+  --flavour-btn-text: var(--lotus-root);
+  --flavour-divider: rgba(227,219,187,0.25);
+}
+body[data-theme="white-truffle"] .fi-cta .find-btn { background: var(--lily-white); color: var(--lotus-root); }
+body[data-theme="strawberry"] {
+  --flavour-bg: var(--lotus-blush);
+  --flavour-accent: var(--ember-charge);
+  --flavour-text: var(--lotus-root);
+  --flavour-divider: rgba(41,41,41,0.2);
+}
+
+/* ---- Light footer variant (used on every page except the homepage) ---- */
+.site-footer--light {
+  background: var(--lily-white);
+  color: var(--lotus-root);
+}
+.site-footer--light .footer-newsletter p:not(.eyebrow) { color: var(--lotus-root); opacity: 0.85; }
+.site-footer--light .eyebrow { color: var(--petal-crimson); }
+.site-footer--light .newsletter-form input {
+  border-color: rgba(41,41,41,0.3);
+  color: var(--lotus-root);
+}
+.site-footer--light .newsletter-form input::placeholder { color: rgba(41,41,41,0.5); }
+.site-footer--light .newsletter-form .btn { background: var(--petal-crimson); color: var(--lily-white); }
+.site-footer--light .newsletter-form .btn:hover { background: var(--waterlily-mist); color: var(--petal-crimson); }
+.site-footer--light .footer-col h5 { opacity: 0.6; }
+.site-footer--light .footer-wordmark { color: var(--petal-crimson); }
+.site-footer--light .footer-bottom { opacity: 0.7; }
+
+/* ==========================================================================
+   FLAVOUR PAGES — DESKTOP FOOTER LAYOUT
+   ========================================================================== */
+
+@media (min-width: 769px) {
+
+  .site-footer {
+    grid-template-columns:
+      minmax(0, 1.15fr)
+      minmax(0, 1.15fr)
+      clamp(3rem, 5vw, 6rem)
+      minmax(9rem, 0.7fr)
+      minmax(9rem, 0.7fr);
+
+    column-gap: 0;
+  }
+
+  /* Newsletter / left side */
+  .site-footer .footer-newsletter {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  /* EXPLORE */
+  .site-footer .footer-col:nth-child(2) {
+    grid-column: 4;
+    grid-row: 1;
+    align-self: start;
+  }
+
+  /* FOLLOW */
+  .site-footer .footer-col:nth-child(3) {
+    grid-column: 5;
+    grid-row: 1;
+    align-self: start;
+  }
+
+  /* CONTACT */
+  .site-footer .footer-col:nth-child(4) {
+    grid-column: 4;
+    grid-row: 2;
+    align-self: start;
+  }
+
+  /* LEGAL */
+  .site-footer .footer-col:nth-child(5) {
+    grid-column: 5;
+    grid-row: 2;
+    align-self: start;
+  }
+
+  /* Remove browser heading top margins */
+  .site-footer .footer-col h5 {
+    margin: 0 0 1rem;
+  }
+
+  /* Big LYLO mark */
+  .site-footer .footer-wordmark {
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+
+    align-self: center;
+
+    margin: 0;
+    padding-left: 2.5rem;
+  }
+
+  /* Copyright */
+  .site-footer .footer-bottom {
+    grid-column: 1 / 3;
+    grid-row: 3;
+
+    align-self: end;
+
+    margin: 0;
+    padding-left: 2.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .site-footer .newsletter-form {
+    max-width: 100%;
+  }
+
+  .site-footer .newsletter-form input {
+    min-width: 0;
+  }
+}
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 900px) {
+  .flavour-hero { grid-template-columns: 1fr; }
+  .featured-stockists { grid-template-columns: repeat(4, 1fr); }
+  .stockist-row { grid-template-columns: 1fr auto; }
+  .stockist-row span:nth-child(1) { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .gallery { grid-template-columns: 1fr; }
+  .gallery-thumbs { flex-direction: row; }
+  .featured-stockists { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* =========================================================
+   HIDE MOBILE-ONLY ACCORDION UI ON DESKTOP
+   ========================================================= */
+
+@media (min-width: 769px) {
+
+  .mobile-accordion-title {
+    display: none !important;
+  }
+
+  .mobile-pair-list {
+    display: none !important;
+  }
+
+}
+/* =========================================================
+   DESKTOP FLAVOUR PAGE — DIVIDER ABOVE FOOTER
+   ========================================================= */
+
+@media (min-width: 769px) {
+
+  .site-footer--light {
+    border-top: 1px solid rgba(41, 41, 41, 0.45) !important;
+  }
+
+}
+/* =========================================================
+   DESKTOP FLAVOUR PAGE — CONTINUOUS 2-COLUMN GRID
+   Starts immediately underneath the header
+   ========================================================= */
+
+@media (min-width: 769px) {
+
+  /* Same split as 1fr / 1.15fr */
+  :root {
+    --flavour-desktop-split: 46.5116%;
+    --flavour-grid-line: rgb(0, 0, 0);
+  }
+
+
+  /* =========================================
+     BREADCRUMB AREA
+     Already divided beige / flavour colour
+     ========================================= */
+
+  .breadcrumb {
+    position: relative;
+
+    width: 100%;
+    margin: 0;
+
+    padding:
+      1.5rem
+      calc(53.4884% + var(--gutter))
+      1.5rem
+      var(--gutter);
+
+    box-sizing: border-box;
+
+    background:
+      linear-gradient(
+        to right,
+        var(--lily-white) 0,
+        var(--lily-white) var(--flavour-desktop-split),
+        var(--flavour-bg, var(--pond-shimmer)) var(--flavour-desktop-split),
+        var(--flavour-bg, var(--pond-shimmer)) 100%
+      );
+  }
+
+  /* vertical centre line starts right below header */
+  .breadcrumb::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--flavour-desktop-split);
+
+    width: 1px;
+
+    background: var(--flavour-grid-line);
+  }
+
+
+  /* =========================================
+     MAIN 2-COLUMN AREA
+     ========================================= */
+
+  .flavour-hero {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+
+    align-items: stretch;
+
+    margin: 0;
+
+    border-bottom: 1px solid rgb(0, 0, 0);
+  }
+
+
+  /* LEFT — beige */
+  .flavour-left {
+    box-sizing: border-box;
+
+    border-right: 1px solid  rgb(0, 0, 0);
+
+    background: var(--lily-white);
+  }
+
+
+  /* RIGHT — flavour colour */
+  .flavour-info {
+    padding: 0 !important;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--flavour-bg, var(--pond-shimmer));
+  }
+
+
+  /* =========================================
+     RIGHT-HAND HORIZONTAL GRID LINES
+     ========================================= */
+
+  .flavour-info .fi-block {
+    width: 100%;
+
+    margin: 0 !important;
+
+    padding:
+      2rem
+      clamp(1.5rem, 3vw, 3rem) !important;
+
+    box-sizing: border-box;
+
+    border-top:
+      1px solid var(--flavour-grid-line) !important;
+  }
+
+
+  /* First blue block has no line above it */
+  .flavour-info .fi-block:first-child {
+    border-top: 0 !important;
+  }
+
+
+  .flavour-info .fi-cta {
+    margin: 0 !important;
+  }
+
+
+  /* Final grid line comes from flavour-hero */
+  .site-footer--light {
+    border-top: 0 !important;
+  }
+
+}

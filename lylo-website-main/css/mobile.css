@@ -1,0 +1,1921 @@
+/* ========================================================================== 
+   LYLO — Mobile-only homepage overrides
+   Source: Figma mobile homepage (600px-wide reference frame)
+   IMPORTANT: Keep desktop styling in home.css untouched.
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* -----------------------------------------------------------------------
+     MOBILE NAV — Figma: 600 x 80
+     ----------------------------------------------------------------------- */
+  .site-header {
+    position: relative;
+    top: auto;
+    z-index: 100;
+    height: 13.3333vw; /* 80 / 600 */
+    min-height: 0;
+    background: var(--lily-white);
+    border-bottom: 0;
+  }
+
+  .site-header .nav {
+    width: 100%;
+    height: 13.3333vw;
+    min-height: 0;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-header .logo {
+    position: absolute;
+    left: 10vw; /* 60 / 600 */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18.1667vw; /* 109 / 600 */
+    height: auto;
+    color: var(--petal-crimson);
+  }
+
+  .site-header .logo svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .site-header nav .nav-links {
+    display: none;
+  }
+
+  .site-header .nav-toggle {
+    display: block;
+    position: absolute;
+    right: 10vw; /* 60 / 600 */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6.6667vw; /* 40 / 600 */
+    height: 6.6667vw;
+    padding: 0;
+    background: transparent;
+    border: 0;
+  }
+
+  .site-header .nav-toggle span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0.8333vw; /* 5 / 600 */
+    min-height: 3px;
+    margin: 0;
+    background: var(--ember-charge);
+  }
+
+  .site-header .nav-toggle span:nth-child(1) { top: 0; }
+  .site-header .nav-toggle span:nth-child(2) { top: 2.6667vw; }
+  .site-header .nav-toggle span:nth-child(3) { top: 5.3333vw; }
+
+  /* -----------------------------------------------------------------------
+     MOBILE HERO — Figma: 600 x 1000 beneath the 80px nav
+     Values are proportional to the original 600px Figma frame so a 390px
+     phone keeps the same composition instead of using desktop proportions.
+     ----------------------------------------------------------------------- */
+  .hero {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 166.6667vw; /* 1000 / 600 */
+    min-height: 0;
+    overflow: hidden;
+    background: var(--mock-grey);
+    color: var(--lily-white);
+  }
+
+  .hero-copy {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  .hero-copy h1 {
+    position: absolute;
+    left: 10vw; /* 60 */
+    top: 10vw;  /* 60 */
+    width: 81.1667vw; /* 487 */
+    font-family: var(--font-display);
+    font-size: 11.6667vw; /* 70 */
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: var(--lily-white);
+  }
+
+  .hero-copy .lede {
+    position: absolute;
+    left: 10vw; /* 60 */
+    top: 85.6667vw; /* 514 */
+    width: 71.3333vw; /* 428 */
+    max-width: none;
+    font-family: var(--font-body);
+    font-size: 4.6667vw; /* 28 */
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--lily-white);
+  }
+
+  .hero-copy .fine-print {
+    position: absolute;
+    left: 10vw; /* 60 */
+    top: 111.8333vw; /* 671 */
+    width: 72.2222vw; /* 433.33 */
+    font-family: var(--font-mono);
+    font-size: 3.3333vw; /* 20 */
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    opacity: 1;
+    color: var(--lily-white);
+  }
+
+  .hero-ctas {
+    position: absolute;
+    left: 10vw; /* 60 */
+    top: 129.8333vw; /* 779 */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4.1667vw; /* approx 25px gap in Figma */
+    margin: 0;
+  }
+
+  .hero-ctas .btn {
+    width: 39.0556vw; /* approx 234.33 */
+    min-height: 0;
+    height: 11.2222vw; /* 67.33 */
+    padding: 0;
+    border-radius: 5.5556vw; /* 33.33 */
+    font-family: var(--font-mono);
+    font-size: 3.3333vw; /* 20 */
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  /* Figma: first CTA is filled Lily White, second is outlined. */
+  .hero-ctas .btn:first-child {
+    background: var(--lily-white);
+    color: var(--petal-crimson);
+    border: 1px solid var(--lily-white);
+  }
+
+  .hero-ctas .btn:nth-child(2) {
+    width: 39.3889vw; /* approx 236.33 */
+    background: transparent;
+    color: var(--lily-white);
+    border: 1px solid var(--lily-white);
+  }
+
+  .hero-visual {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    pointer-events: none;
+  }
+
+  .hero-visual .placeholder {
+    display: none;
+  }
+
+  .hero-script {
+    position: absolute;
+    left: 36.5vw; /* 219 */
+    top: 39.1667vw; /* 235 */
+    right: auto;
+    bottom: auto;
+    width: 58.3333vw; /* 350 */
+    height: auto;
+    transform: none;
+    display: block;
+  }
+
+  /* Keep drawer usable if hamburger is opened. This is intentionally kept
+     separate from the Figma static frame so functionality isn't lost. */
+  .nav-links.open {
+    display: flex !important;
+    position: absolute;
+    top: 13.3333vw;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    padding: 4vw 10vw 6vw;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--lily-white);
+    border-bottom: 1px solid var(--lotus-root);
+  }
+}
+/* ========================================================================== 
+   STEP 2 — MOBILE FLAVOUR RANGE
+   Figma reference: 600px-wide mobile frame
+   - ticker strip: 99px
+   - flavour viewport/panel: 998px total including 99px ticker + 800px cards
+   - cards: 500 x 800px
+   - next card starts 527px after the first (27px gap)
+   - purple backing belongs to the FIRST/active card only
+   ========================================================================== */
+@media (max-width: 768px) {
+ .ticker {
+  position: relative;
+  width: 100%;
+  height: 16.5vw;
+  overflow: hidden;
+  background: var(--nectar-violet);
+  border: 0;
+  white-space: nowrap;
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  height: 100%;
+  gap: 0;
+
+  animation: flavourTicker 5s linear infinite;
+  will-change: transform;
+}
+
+.ticker-track span {
+  flex: 0 0 62.6667vw;
+  width: 62.6667vw;
+
+  font-family: var(--font-display);
+  font-size: 8vw;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--deep-wetland);
+}
+
+@keyframes flavourTicker {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-62.6667vw);
+  }
+}
+
+  /* The cards become a horizontal Figma-style rail. */
+  .flavour-section {
+    min-height: 0;
+    display: block;
+    overflow: visible;
+    background: var(--lily-white);
+  }
+
+  .flavour-grid {
+    position: relative;
+    display: flex;
+    grid-template-columns: none;
+    align-items: center;
+    gap: 4.5vw; /* 27 / 600 */
+    width: 100%;
+    height: 149.8333vw; /* 899 / 600: remaining height after ticker */
+    padding: 0 8.3333vw; /* 50 / 600 */
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 8.3333vw;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border: 0;
+    background: var(--lily-white);
+  }
+
+  .flavour-grid::-webkit-scrollbar { display: none; }
+
+  .flavour-card {
+  position: relative;
+  flex: 0 0 83.3333vw;
+  width: 83.3333vw;
+  height: 133.3333vw;
+  min-height: 0;
+
+  margin: 0;
+  padding: 0 10vw 10vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  gap: 0;
+
+  overflow: visible;
+  scroll-snap-align: center;
+
+  border: 1px solid var(--lotus-root);
+  background: var(--lily-white);
+  box-sizing: border-box;
+
+  transition: box-shadow 0.25s ease;
+}
+
+  /* Purple backing only around the FIRST/active card. 50px spread reproduces
+     the 600px purple panel around a centered 500px card. */
+  .flavour-card {
+  box-shadow: none;
+  z-index: 1;
+}
+
+.flavour-card.is-active {
+  box-shadow: 0 0 0 8.3333vw var(--nectar-violet);
+  z-index: 3;
+}
+
+  /* Packshot placeholder occupies the visual/product area in the Figma card.
+     Keep the current placeholder content invisible but retain its space. */
+  .flavour-card .placeholder {
+    position: absolute;
+    left: 10vw; /* 60 / 600 */
+    top: 10vw;
+    width: 63.3333vw;
+    height: 68vw;
+    max-width: none;
+    margin: 0;
+    aspect-ratio: auto;
+    display: block;
+    background: transparent;
+    border: 0;
+    color: transparent;
+  }
+
+  .flavour-card h3 {
+  position: static;
+
+  width: 100%;
+  margin: 0 0 3vw;
+
+  font-family: var(--font-display);
+  font-size: 8vw;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0;
+
+  text-transform: uppercase;
+  color: var(--lotus-root);
+}
+
+ .flavour-card .tagline {
+  position: static;
+
+  width: 100%;
+  margin: 0 0 5vw;
+
+  font-family: var(--font-mono);
+  font-size: 3.3333vw;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+
+  text-transform: uppercase;
+  opacity: 1;
+  color: var(--lotus-root);
+}
+
+ .flavour-card .btn {
+  position: static;
+
+  width: auto;
+  min-width: 39.0556vw;
+  height: 11.2222vw;
+  min-height: 0;
+
+  margin: 0;
+  padding: 0 5vw;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 5.5556vw;
+
+  background: var(--petal-crimson);
+  color: var(--waterlily-mist);
+
+  font-family: var(--font-mono);
+  font-size: 3.3333vw;
+  font-weight: 400;
+  line-height: 1;
+
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+  /* Circular arrow anchored to the right edge of the active Sea Salt card. */
+  .flavour-card.is-active::after {
+  content: "→";
+
+  position: absolute;
+  z-index: 5;
+
+  right: -6.6667vw;
+  top: 44%;
+
+  width: 13.3333vw;
+  height: 13.3333vw;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--lotus-root);
+  border-radius: 50%;
+
+  background: var(--deep-wetland);
+  color: var(--pond-shimmer);
+
+  font-family: var(--font-body);
+  font-size: 5vw;
+  line-height: 1;
+
+  box-sizing: border-box;
+}
+
+  /* Figma intro panel directly below the flavour rail: 600 x 250. */
+  .benefits-intro {
+    width: 100%;
+    min-height: 41.6667vw; /* 250 / 600 */
+    padding: 13.3333vw 16.6667vw; /* 80px top, 100px sides */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    box-sizing: border-box;
+    background: var(--lily-white);
+    border-top: 1px solid var(--lotus-root);
+    border-bottom: 1px solid var(--lotus-root);
+    text-align: center;
+  }
+
+  .benefits-intro p {
+    width: 71.3333vw; /* 428 / 600 */
+    max-width: none;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 4.6667vw; /* 28 */
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--lotus-root);
+  }
+}
+/* ==========================================================================
+   STEP 3 — MOBILE BENEFITS GRID
+   ========================================================================== */
+@media (max-width: 768px) {
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 50vw;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    background: var(--waterlily-mist);
+    border-top: 1px solid var(--lotus-root);
+    border-left: 1px solid var(--lotus-root);
+    overflow: visible;
+  }
+
+  .benefit {
+    width: 100%;
+    height: 50vw;
+    margin: 0;
+    padding: 5.3333vw 4vw 4vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    background: var(--waterlily-mist);
+    border-right: 1px solid var(--lotus-root);
+    border-bottom: 1px solid var(--lotus-root);
+    text-align: center;
+  }
+
+  .benefit .mono-label {
+    width: 100%;
+    min-height: 8vw;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 3.3333vw;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--petal-crimson);
+  }
+
+  .benefit img {
+    width: 18.3333vw;
+    height: 18.3333vw;
+    margin: 3vw auto 4vw;
+    object-fit: contain;
+    display: block;
+  }
+
+  .benefit p {
+    width: 35.1667vw;
+    max-width: none;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 2.6667vw;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    color: var(--lotus-root);
+  }
+
+  .disclaimer-bar {
+    position: relative;
+    width: 100%;
+    min-height: 13.3333vw;
+    margin: 0;
+    padding: 3vw 6vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background: var(--petal-crimson);
+    color: var(--lily-white);
+    z-index: 1;
+  }
+
+  .disclaimer-bar p {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 2.6667vw;
+    line-height: 1.4;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--lily-white);
+  }
+}
+
+/* ==========================================================================
+   STEP 4 — MOBILE RETAIL + WHY STOCK
+   ========================================================================== */
+@media (max-width: 768px) {
+  .retail {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    background: var(--lily-white);
+  }
+
+  .retail-headline {
+    width: 100%;
+    height: 73.6667vw;
+    padding: 10vw 11.5vw 0;
+    box-sizing: border-box;
+    display: block;
+    background: var(--pale-amber);
+    border: 1px solid var(--lotus-root);
+  }
+
+  .retail-headline h2 {
+    width: 82.6667vw;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 11.6667vw;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: var(--botanical-moss);
+  }
+
+  .retail-detail {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+  }
+
+  .retail-detail .copy {
+    width: 100%;
+    height: 45vw;
+    padding: 10vw 11.5vw;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    background: var(--lily-white);
+    border-left: 1px solid var(--lotus-root);
+    border-right: 1px solid var(--lotus-root);
+    border-bottom: 1px solid var(--lotus-root);
+  }
+
+  .retail-detail .copy p {
+    width: 80vw;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 4.6667vw;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--lotus-root);
+  }
+
+  .retail-detail .placeholder { display: none; }
+
+  .why-stock-band {
+    width: 100%;
+    height: 16.1667vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--botanical-moss);
+    border-left: 1px solid var(--lotus-root);
+    border-right: 1px solid var(--lotus-root);
+    box-sizing: border-box;
+  }
+
+  .why-stock-band h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 8vw;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--pale-amber);
+  }
+
+  .sequence-strip {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 50vw);
+    width: 100%;
+    height: 150vw;
+    margin: 0;
+    padding: 0;
+    background: var(--lily-white);
+    border-left: 1px solid var(--lotus-root);
+    border-top: 1px solid var(--lotus-root);
+    box-sizing: border-box;
+  }
+
+  .sequence-item {
+    width: 100%;
+    height: 50vw;
+    margin: 0;
+    padding: 7vw 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background: var(--lily-white);
+    border-right: 1px solid var(--lotus-root);
+    border-bottom: 1px solid var(--lotus-root);
+    text-align: center;
+  }
+
+  .sequence-item .step {
+    margin: 0 0 1.5vw;
+    font-family: var(--font-mono);
+    font-size: clamp(12px, 2.8vw, 16px);
+    font-weight: 400;
+    line-height: 1.3;
+    text-transform: uppercase;
+    color: var(--botanical-moss);
+  }
+
+  .sequence-item h4 {
+    margin: 0 0 1.5vw;
+    font-family: var(--font-body);
+    font-size: clamp(16px, 3.5vw, 20px);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--petal-crimson);
+  }
+
+  .sequence-item p {
+    width: 40vw;
+    max-width: 22ch;
+    margin: 0 auto;
+    font-family: var(--font-body);
+    font-size: clamp(15px, 3.2vw, 18px);
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--petal-crimson);
+  }
+
+  .sequence-strip::before {
+    content: "";
+    grid-column: 1;
+    grid-row: 3;
+    background: #d9d9d9;
+    border-right: 1px solid var(--lotus-root);
+    border-bottom: 1px solid var(--lotus-root);
+  }
+
+  .sequence-item:nth-child(5) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+}
+
+/* ==========================================================================
+   STEP 5 — MOBILE TRADE SECTION
+   ========================================================================== */
+@media (max-width: 768px) {
+  .trade {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    background: var(--lily-white);
+    border-top: 1px solid var(--lotus-root);
+  }
+
+  .trade-cta-panel {
+    order: 1;
+    position: relative;
+    width: 100%;
+    height: 113.6667vw;
+    min-height: 113.6667vw;
+    padding: 10vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0;
+    background: var(--pale-amber);
+    border: 0;
+  }
+
+  .trade-cta-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--lotus-root);
+  }
+
+  .trade-cta-panel h2 {
+    width: 82.6667vw;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 11.6667vw;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--botanical-moss);
+  }
+
+  .trade-cta-panel p {
+    width: 74.8333vw;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 4.6667vw;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--lotus-root);
+    max-width: none;
+  }
+
+  .trade-form-panel {
+    order: 2;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 10vw 9.5vw 12vw;
+    box-sizing: border-box;
+    display: block;
+    background: var(--lily-white);
+  }
+
+  .trade-form-panel > .eyebrow,
+  .trade-form-panel > .lede,
+  .trade-form-panel > .trade-form,
+  .trade-form-panel > .trade-success {
+    width: 100%;
+    max-width: none;
+  }
+
+  .trade-form-panel .eyebrow {
+    margin: 0 0 2vw;
+    font-family: var(--font-mono);
+    font-size: 2.3333vw;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: var(--lotus-root);
+  }
+
+  .trade-form-panel .lede {
+    width: 80.5vw;
+    margin: 0 0 6vw;
+    max-width: none;
+    font-family: var(--font-body);
+    font-size: 3vw;
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--petal-crimson);
+  }
+
+  .trade-form,
+  .trade-form .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5vw;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .trade-form .field {
+    width: 100%;
+    margin: 0;
+    gap: 1vw;
+  }
+
+  .trade-form .field label {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 3vw;
+    line-height: 1.3;
+    color: var(--lotus-root);
+  }
+
+  .trade-form .field input,
+  .trade-form .field select,
+  .trade-form .field textarea {
+    width: 100%;
+    min-height: 7vw;
+    padding: 1.3333vw 2.6667vw;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+    font-size: 3vw;
+    background: #fff;
+    border: 1px solid rgba(20,20,20,.32);
+    border-radius: 4px;
+  }
+
+  .trade-form .field textarea {
+    min-height: 15vw;
+    resize: vertical;
+  }
+
+  .trade-form .consent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2vw;
+    margin: 1vw 0 4vw;
+    font-family: var(--font-body);
+    font-size: 2.7vw;
+    line-height: 1.4;
+  }
+
+  .trade-form .consent input {
+    width: 3vw;
+    height: 3vw;
+    min-height: 0;
+    padding: 0;
+    margin: .5vw 0 0;
+    flex: 0 0 auto;
+  }
+
+  .form-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4vw;
+    margin-top: 4vw;
+  }
+
+  .trade-form .form-actions .btn {
+    min-height: 0;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: 3.3333vw;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .form-actions .btn:first-child {
+    width: 45.0556vw;
+    height: 11.2222vw;
+    border: 0;
+    border-radius: 5.5556vw;
+    background: var(--ember-charge);
+    color: var(--lily-white);
+  }
+
+  .form-actions .btn:nth-child(2) {
+    width: 57.3889vw;
+    height: 11.5556vw;
+    border: 1px solid var(--ember-charge);
+    border-radius: 5.5556vw;
+    background: transparent;
+    color: var(--ember-charge);
+  }
+}
+
+/* ==========================================================================
+   STEP 6 — MOBILE QUALITY SECTION
+   ========================================================================== */
+@media (max-width: 768px) {
+  .quality {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    display: block;
+    background: var(--waterlily-mist);
+    overflow: visible;
+  }
+
+  .quality-head {
+    display: block;
+    width: 100%;
+    height: 121.1667vw;
+    margin: 0;
+    padding: 10vw;
+    box-sizing: border-box;
+    background: var(--waterlily-mist);
+  }
+
+  .quality-head h2 {
+    width: 82.6667vw;
+    margin: 0 0 23vw;
+    font-family: var(--font-display);
+    font-size: 11.6667vw;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--petal-crimson);
+  }
+
+  .quality-head > div { width: 74.8333vw; }
+
+  .quality-head > div p {
+    max-width: none;
+    margin: 0 0 6vw;
+    font-family: var(--font-body);
+    font-size: 4.6667vw;
+    line-height: 1.25;
+    color: var(--petal-crimson);
+  }
+
+  .quality-head > div p strong { font-weight: 700; }
+
+  .quality-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 66.6667vw);
+    gap: 0;
+    width: 100%;
+    height: 133.3334vw;
+    margin: 0;
+    padding: 0;
+    background: var(--lily-white);
+  }
+
+  .quality-card {
+    position: relative;
+    width: 100%;
+    height: 66.6667vw;
+    margin: 0;
+    padding: 9vw 4vw 4vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    box-sizing: border-box;
+    background: var(--lily-white);
+    border: 0;
+    border-right: 1px solid var(--lotus-root);
+    border-bottom: 1px solid var(--lotus-root);
+    overflow: hidden;
+  }
+
+  .quality-card:nth-child(odd) { border-left: 1px solid var(--lotus-root); }
+  .quality-card:nth-child(-n+2) { border-top: 1px solid var(--lotus-root); }
+
+  .quality-card .badge {
+    position: static;
+    width: 100%;
+    height: 22.5vw;
+    margin: 0 0 6vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  .quality-card .badge img {
+    position: static;
+    width: auto;
+    height: auto;
+    max-width: 22.5vw;
+    max-height: 22.5vw;
+    margin: 0;
+    object-fit: contain;
+    transform: none;
+  }
+
+  .quality-card .step {
+    display: block;
+    width: 100%;
+    margin: 0 0 3vw;
+    font-family: var(--font-mono);
+    font-size: 2.3333vw;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: var(--botanical-moss);
+  }
+
+  .quality-card h4 {
+    width: 100%;
+    margin: 0 0 3vw;
+    font-family: var(--font-mono);
+    font-size: 3vw;
+    font-weight: 700;
+    line-height: 1.3;
+    text-transform: uppercase;
+    color: var(--botanical-moss);
+  }
+
+  .quality-card p {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 2.6667vw;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--botanical-moss);
+  }
+
+  .quality-footnote {
+    width: 100%;
+    height: 15.1667vw;
+    margin: 0;
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background: var(--lily-white);
+  }
+
+  .quality-footnote p {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 2.6667vw;
+    line-height: 1.4;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--lotus-root);
+  }
+}
+
+
+/* ==========================================================================\n   STEP 7 — MOBILE FOOTER REFINEMENT\n   ========================================================================== */
+@media (max-width: 768px) {
+  .site-footer {
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    padding: 0;
+    background: var(--ember-charge);
+    color: var(--lily-white);
+  }
+
+  .footer-top {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 10vw 10vw 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10vw;
+    row-gap: 0;
+    box-sizing: border-box;
+  }
+
+  .footer-newsletter {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 0 0 11vw;
+  }
+
+  .footer-newsletter .eyebrow {
+    margin: 0 0 1.5vw;
+    font-family: var(--font-mono);
+    font-size: 2.6667vw;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: var(--lotus-blush);
+  }
+
+  .footer-newsletter > p:not(.eyebrow) {
+    width: 64vw;
+    margin: 0 0 3vw;
+    font-family: var(--font-body);
+    font-size: 3vw;
+    line-height: 1.5;
+    color: var(--lily-white);
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 4vw;
+  }
+
+  .newsletter-form input {
+    width: 80vw;
+    height: 7vw;
+    padding: 1.3333vw 2.6667vw;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+    font-size: 3vw;
+    background: #fff;
+    border: 1px solid rgba(20,20,20,.32);
+    border-radius: 4px;
+  }
+
+  .newsletter-form .btn {
+    width: 27.0556vw;
+    height: 11.2222vw;
+    padding: 0;
+    border: 0;
+    border-radius: 5.5556vw;
+    background: var(--lotus-blush);
+    color: var(--lotus-root);
+    font-family: var(--font-mono);
+    font-size: 3.3333vw;
+    text-transform: uppercase;
+  }
+
+  .footer-col { margin: 0; padding: 0; }
+
+  .footer-col h5 {
+    margin: 0 0 2vw;
+    font-family: var(--font-mono);
+    font-size: 3.3333vw;
+    font-weight: 400;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: var(--lotus-blush);
+  }
+
+  .footer-col ul { margin: 0; padding: 0; list-style: none; }
+
+  .footer-col li,
+  .footer-col a,
+  .footer-col address {
+    font-family: var(--font-body);
+    font-size: 4.6667vw;
+    line-height: 1.25;
+    color: var(--lily-white);
+  }
+
+  .footer-col:nth-of-type(4),
+  .footer-col:nth-of-type(5) { margin-top: 11vw; }
+
+  .footer-col address { font-style: normal; }
+
+  .footer-col:nth-of-type(5) li,
+  .footer-col:nth-of-type(5) a {
+    font-family: var(--font-mono);
+    font-size: 2.6667vw;
+    line-height: 1.7;
+    text-transform: uppercase;
+  }
+
+  .footer-col:nth-of-type(5) h5 { display: none; }
+
+  .footer-bottom {
+    width: 100%;
+    margin: 9vw 0 0;
+    padding: 0 10vw;
+    box-sizing: border-box;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 2.6667vw;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: var(--lily-white);
+  }
+
+  .footer-wordmark {
+    width: 100%;
+    max-width: none;
+    margin: 5vw 0 0;
+    padding: 0 10vw 10vw;
+    box-sizing: border-box;
+    color: var(--lotus-blush);
+  }
+
+  .footer-wordmark svg {
+    display: block;
+    width: 80vw;
+    height: auto;
+    margin: 0;
+  }
+}
+
+/* ==========================================================================\n   WIDER MOBILE / SMALL TABLET CAPS — 641px to 768px\n   Keep the mobile composition, but stop 600px-Figma typography and controls\n   from scaling past their intended design size.\n   ========================================================================== */
+@media (min-width: 641px) and (max-width: 768px) {
+  .hero-copy h1,
+  .retail-headline h2,
+  .trade-cta-panel h2,
+  .quality-head h2 {
+    font-size: 70px;
+  }
+
+  .hero-copy .lede,
+  .retail-detail .copy p,
+  .trade-cta-panel p,
+  .quality-head > div p {
+    font-size: 28px;
+  }
+
+  .flavour-card h3,
+  .why-stock-band h3,
+  .ticker-track span {
+    font-size: 48px;
+  }
+
+  .site-header .logo { width: 109px; }
+
+  .hero-ctas .btn,
+  .flavour-card .btn,
+  .form-actions .btn,
+  .newsletter-form .btn {
+    font-size: 20px;
+  }
+
+  .hero-copy .fine-print,
+  .flavour-card .tagline,
+  .sequence-item .step,
+  .quality-card .step,
+  .quality-footnote p,
+  .footer-newsletter .eyebrow,
+  .footer-col h5,
+  .footer-bottom p {
+    font-size: 16px;
+  }
+
+  .benefits-intro p { font-size: 28px; }
+}
+
+/* ==========================================================================\n   STEP 7B — FOOTER SCALE TUNING\n   Keep the footer visually close to the 600px Figma composition even when\n   mobile mode is active on wider screens up to 768px.\n   ========================================================================== */
+@media (max-width: 768px) {
+  .footer-top {
+    padding: clamp(40px, 10vw, 60px) clamp(32px, 10vw, 60px) 0;
+    column-gap: clamp(44px, 10vw, 72px);
+  }
+
+  .footer-newsletter {
+    margin-bottom: clamp(46px, 11vw, 66px);
+  }
+
+  .footer-newsletter .eyebrow,
+  .footer-col h5,
+  .footer-bottom p,
+  .footer-col:nth-of-type(5) li,
+  .footer-col:nth-of-type(5) a {
+    font-size: clamp(10px, 2.15vw, 13px);
+  }
+
+  .footer-newsletter > p:not(.eyebrow) {
+    width: min(100%, 382px);
+    margin-bottom: 16px;
+    font-size: clamp(13px, 2.85vw, 18px);
+    line-height: 1.5;
+  }
+
+  .newsletter-form {
+    gap: 22px;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+    max-width: 480px;
+    height: clamp(42px, 7vw, 50px);
+    padding: 8px 16px;
+    font-size: clamp(13px, 2.5vw, 16px);
+  }
+
+  .newsletter-form .btn {
+    width: auto;
+    min-width: 110px;
+    height: clamp(44px, 8vw, 50px);
+    padding: 0 22px;
+    border-radius: 999px;
+    font-size: clamp(12px, 2.35vw, 14px);
+  }
+
+  .footer-col li,
+  .footer-col a,
+  .footer-col address {
+    font-size: clamp(16px, 3.35vw, 20px);
+    line-height: 1.28;
+  }
+
+  .footer-col:nth-of-type(4),
+  .footer-col:nth-of-type(5) {
+    margin-top: clamp(48px, 11vw, 66px);
+  }
+
+  .footer-col:nth-of-type(5) li,
+  .footer-col:nth-of-type(5) a {
+    line-height: 1.75;
+  }
+
+  .footer-bottom {
+    margin-top: clamp(42px, 9vw, 56px);
+    padding: 0 clamp(32px, 10vw, 60px);
+  }
+
+  .footer-wordmark {
+    margin-top: clamp(18px, 5vw, 30px);
+    padding: 0 clamp(32px, 10vw, 60px) clamp(38px, 10vw, 60px);
+  }
+
+  .footer-wordmark svg {
+    width: min(80vw, 480px);
+  }
+}
+
+/* ==========================================================================\n   STEP 7C — FOOTER HARD MOBILE RESET\n   Prevent desktop footer grid/flex sizing from squeezing the newsletter.\n   ========================================================================== */
+@media (max-width: 768px) {
+  .site-footer {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .footer-top.wrap {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 40px 32px 0 !important;
+    column-gap: 36px !important;
+    row-gap: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .footer-newsletter {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 0 44px !important;
+    padding: 0 !important;
+  }
+
+  .footer-newsletter .eyebrow {
+    width: 100% !important;
+    margin: 0 0 8px !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    white-space: nowrap !important;
+  }
+
+  .footer-newsletter > p:not(.eyebrow) {
+    display: block !important;
+    width: 100% !important;
+    max-width: 382px !important;
+    margin: 0 0 16px !important;
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+    white-space: normal !important;
+  }
+
+  .newsletter-form {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    max-width: none !important;
+    gap: 18px !important;
+  }
+
+  .newsletter-form input {
+    flex: none !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    min-width: 0 !important;
+    height: 42px !important;
+    padding: 8px 14px !important;
+    box-sizing: border-box !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+  }
+
+  .newsletter-form .btn {
+    flex: none !important;
+    width: auto !important;
+    min-width: 108px !important;
+    height: 44px !important;
+    padding: 0 20px !important;
+    border-radius: 999px !important;
+    font-size: 12px !important;
+  }
+
+  .footer-col {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    align-self: start !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .footer-col:nth-child(4),
+  .footer-col:nth-child(5) {
+    margin-top: 42px !important;
+  }
+
+  .footer-col h5 {
+    margin: 0 0 8px !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  .footer-col ul {
+    gap: 2px !important;
+  }
+
+  .footer-col li,
+  .footer-col a,
+  .footer-col address {
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+  }
+
+  .footer-col:nth-child(5) h5 {
+    display: none !important;
+  }
+
+  .footer-col:nth-child(5) li,
+  .footer-col:nth-child(5) a {
+    font-family: var(--font-mono) !important;
+    font-size: 11px !important;
+    line-height: 1.75 !important;
+    text-transform: uppercase !important;
+  }
+
+  .footer-wordmark.wrap {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 38px 0 0 !important;
+    padding: 0 32px !important;
+    box-sizing: border-box !important;
+  }
+
+  .footer-wordmark svg {
+    width: 100% !important;
+    max-width: 480px !important;
+    height: auto !important;
+  }
+
+  .footer-bottom {
+    width: 100% !important;
+    margin: 28px 0 0 !important;
+    padding: 0 32px 40px !important;
+    box-sizing: border-box !important;
+    font-size: 11px !important;
+  }
+
+  .footer-bottom p {
+    margin: 0 !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+  }
+}
+/* =========================================================
+   DESKTOP FOOTER COLUMN POSITION
+   ========================================================= */
+
+@media (min-width: 861px) {
+
+  .site-footer .footer-col {
+    position: relative;
+    left: 9rem;
+  }
+
+}
+@media (max-width: 768px) {
+
+  /* =========================================
+     GLOBAL MOBILE BODY COPY
+     ========================================= */
+
+  body {
+    font-size: 18px;
+  }
+
+  p,
+  li,
+  address,
+  input,
+  select,
+  textarea {
+    font-size: clamp(17px, 4.2vw, 20px);
+    line-height: 1.5;
+  }
+
+  /* keep small utility/meta text small */
+  .fine-print,
+  .fi-eyebrow,
+  .meta,
+  .step,
+  .eyebrow,
+  .tagline {
+    font-size: clamp(11px, 2.8vw, 14px);
+  }
+
+
+  /* =========================================
+     MOBILE TICKER SPACING
+     ========================================= */
+
+  .ticker-track {
+    display: flex;
+    align-items: center;
+
+    gap: 2rem;
+  }
+
+  .ticker-track span {
+    padding: 1rem 0;
+
+    white-space: nowrap;
+
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+}
+
+@media (max-width: 768px) {
+
+  .benefit {
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .benefit .mono-label,
+  .benefit p {
+    width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+@media (max-width: 768px) {
+
+  .benefit {
+    padding: 1.75rem 0.75rem 1.5rem;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    justify-items: center;
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .benefit .mono-label {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+
+    font-family: var(--font-mono);
+    font-size: clamp(15px, 3.2vw, 19px);
+    font-weight: 400;
+
+    line-height: 1.2;
+    letter-spacing: 0;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: var(--lotus-root);
+  }
+
+  .benefit img {
+    width: clamp(100px, 18vw, 115px);
+    height: clamp(100px, 18vw, 115px);
+
+    margin: 1.5rem 0;
+
+    object-fit: contain;
+  }
+
+  .benefit p {
+    width: 100%;
+    max-width: 23ch;
+
+    margin: 0 auto;
+
+    font-size: clamp(15px, 3.4vw, 17px);
+    line-height: 1.35;
+
+    text-align: center;
+
+    color: var(--lotus-root);
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .journey {
+    display: block;
+    min-height: 0;
+  }
+
+  .journey-copy {
+    min-height: 130vw;
+
+    padding: 9vw 10vw 8vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .journey-copy h2 {
+    margin: 0;
+
+    font-size: clamp(48px, 11vw, 68px);
+    line-height: 1.08;
+
+    max-width: 14ch;
+  }
+
+  .journey-copy p {
+    margin: 0 !important;
+
+    font-size: clamp(20px, 4.5vw, 26px);
+    line-height: 1.4;
+
+    max-width: 26ch;
+  }
+
+  .journey-media {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, 46vw);
+
+  gap: 1px;
+  background: var(--lily-white);
+
+  height: auto;
+  min-height: 0;
+}
+
+.journey-media figure {
+  height: 46vw;
+  min-height: 0;
+
+  margin: 0;
+  overflow: hidden;
+}
+
+  .journey-media img,
+  .journey-media .placeholder {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+}
+@media (max-width: 768px) {
+
+  .journey-media figcaption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    padding: 4rem 1.25rem 1.25rem;
+
+    box-sizing: border-box;
+
+    font-family: var(--font-body);
+    font-size: clamp(16px, 3.7vw, 19px);
+    font-weight: 400;
+    line-height: 1.45;
+
+    color: #fff;
+
+    background:
+      linear-gradient(
+        to top,
+        rgba(0,0,0,0.72) 0%,
+        rgba(0,0,0,0.42) 50%,
+        rgba(0,0,0,0) 100%
+      );
+  }
+
+
+  /* 01 / SOURCE etc. */
+  .journey-media figcaption .step {
+    display: block;
+
+    margin-bottom: 0.6rem;
+
+    font-family: var(--font-mono);
+    font-size: clamp(12px, 2.8vw, 15px);
+    font-weight: 400;
+    line-height: 1.2;
+
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    opacity: 0.95;
+  }
+
+
+  /* Bihar, India. / Full Traceability. etc. */
+  .journey-media figcaption .title {
+    display: block;
+
+    margin-bottom: 0.15rem;
+
+    font-family: var(--font-body);
+    font-size: inherit;
+    font-weight: 700;
+    line-height: inherit;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  /* =========================================
+     JOURNEY CAPTIONS — MOBILE
+     ========================================= */
+
+  .journey-media figcaption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 4rem 1.25rem 1.25rem;
+
+    text-align: left;
+
+    font-family: var(--font-body);
+    font-size: clamp(16px, 3.7vw, 19px);
+    font-weight: 400;
+    line-height: 1.45;
+
+    color: #fff;
+
+    background:
+      linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.72) 0%,
+        rgba(0, 0, 0, 0.42) 50%,
+        rgba(0, 0, 0, 0) 100%
+      );
+  }
+
+
+  /* 01 / SOURCE, 02 / JOURNEY, etc. */
+  .journey-media figcaption .step {
+    display: block;
+
+    margin: 0 0 0.1rem;
+
+    font-family: var(--font-mono);
+    font-size: clamp(12px, 2.8vw, 15px);
+    font-weight: 300;
+    line-height: 1.2;
+
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    color: #E9DFC0;
+    opacity: 1;
+
+    text-align: left;
+  }
+
+
+  /* Bihar, India. / Full Traceability. etc. */
+  .journey-media figcaption .title {
+    display: block;
+
+    margin: 0 0 0.1rem;
+
+    font-family: var(--font-body);
+    font-size: inherit;
+    font-weight: 700;
+    line-height: inherit;
+
+    color: #fff;
+
+    text-align: left;
+  }
+
+
+  /* =========================================
+     FIX 04 / CRUNCH PLACEHOLDER ALIGNMENT
+     ========================================= */
+
+  .journey-media figure.placeholder {
+    position: relative;
+
+    display: block !important;
+
+    text-align: left;
+  }
+
+  .journey-media figure.placeholder figcaption {
+    left: 0;
+    right: auto;
+
+    text-align: left;
+
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  .journey-media figure.placeholder figcaption .step,
+  .journey-media figure.placeholder figcaption .title {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .journey-media figcaption br {
+    display: none;
+  }
+
+  .journey-media figcaption .step {
+    margin-bottom: 0.1rem;
+  }
+
+  .journey-media figcaption .title {
+    margin-top: 0;
+  }
+}
